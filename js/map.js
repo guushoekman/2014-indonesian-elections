@@ -58,13 +58,17 @@ function showCaption(d, i) {
     caption.html(d.properties.area);
 }
 
-var map = L.map('map').setView([-4, 120], 4);
+var map = new L.Map('map',{
+    center: [-4, 120],
+    zoom: 4,
+});
 
-var cloudmade = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    subdomains: 'abcd',
+var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     minZoom: 4,
-    maxZoom: 20}).addTo(map);
+    maxZoom: 10,
+    opacity: 0.8
+    }).addTo(map);
 
 /* Initialize the SVG layer */
 map._initPathRoot()  ;
@@ -92,7 +96,7 @@ for(i=0;i<10;i++) {
     d3.select("#t" + i).html(clusterNames[i]);
 }
 
-d3.json("final.json", function(topology) {
+d3.json("data/data.json", function(topology) {
     var bounds = d3.geo.bounds(topojson.object(topology, topology.objects.areas)),
 	path = d3.geo.path().projection(project);
 

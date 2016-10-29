@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Map of the 2014 Election">
+  <meta property="article:author" content="Guus Hoekman" />
+  <title>Indonesian Legislative Election 2014</title>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src="js/chroma.min.js"></script>
+
+</head>
+<body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.12/d3.min.js"></script>
+  <script src="js/topojson.v0.min.js"></script>
+
+  <div class="container">
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+    <div class="sidebar">
+      <h1>Indonesian Legislative Election 2014</h1>
+  	  <label for="select">Party to display:</label>
+  	  <select>
+          <option value="Winner">Winner</option>
+    	    <option value="Nasdem">Nasdem</option>
+    	    <option value="PKB">PKB</option>
+          <option value="PKS">PKS</option>
+          <option value="PDIP">PDI-P</option>
+          <option value="Golkar">Golkar</option>
+          <option value="Gerindra">Gerindra</option>
+          <option value="Demokrat">Demokrat</option>
+          <option value="PAN">PAN</option>
+          <option value="PPP">PPP</option>
+          <option value="Hanura">Hanura</option>
+    	  </select>
+    <hr>
+  	<h4 id="caption">National results</h4>
+  	<div class="chart"></div>
+    <p class="download">
+      <a class="btn" href="data/processed-data.ods" download><i class="fa fa-download" aria-hidden="true"></i> Processed data</a>
+      <a class="btn" href="data/legislative-election-results.pdf" download><i class="fa fa-download" aria-hidden="true"></i> Raw data</a>
+      <a class="btn" href="https://github.com/guushoekman/choropleth"><i class="fa fa-github" aria-hidden="true"></i> Source</a>
+    </p>
+
+    <script type="text/javascript" src="js/map.js"></script>
+    <script src="js/barchart.js"></script>
+    <script type="text/javascript">
+            (function(doc, script) {
+        var js,
+            fjs = doc.getElementsByTagName(script)[0],
+            frag = doc.createDocumentFragment(),
+            add = function(url, id) {
+                if (doc.getElementById(id)) {return;}
+                js = doc.createElement(script);
+                js.src = url;
+                id && (js.id = id);
+                frag.appendChild( js );
+            };
+
+          fjs.parentNode.insertBefore(frag, fjs);
+
+      }(document, 'script'));
+      </script>
+    </div>
+  </div>
+</body>
+</html>

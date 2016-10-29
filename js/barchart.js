@@ -72,7 +72,6 @@ chart.selectAll("text.name")
     .attr("text-anchor", "left")
     .attr('class', 'name')
     .attr("font-size", 12)
-    .attr("font-family","'Ubuntu',Tahoma,sans-serif")
     .text(String);
 
 function redraw() {
