@@ -9,7 +9,7 @@ var w = 300,
 
 var x = d3.scale.linear()
         .domain([0, maxper])
-        .range([0, w-40]);
+        .range([0, w-30]);
 var y = d3.scale.ordinal()
         .domain(barData)
         .rangeBands([0, h]);
@@ -40,7 +40,7 @@ chart.selectAll(".rule")
     .attr("y", 0)
     .attr("dy", -4)
     .attr("text-anchor", "middle")
-    .attr("font-size", 10)
+    .attr("font-size", 11)
     .text(function(d){return digit0(d)});
 
 //the bars
