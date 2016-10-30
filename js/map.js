@@ -155,6 +155,6 @@ d3.select("select").on("change", function() {
 	if (selection == "Winner")
 	    return d.properties.color;
 	else
-            return choose_scale(selection)(d.properties[selection]).hex();
+        return choose_scale(selection)(d.properties[selection]).hex();
     });
 });
